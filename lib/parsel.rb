@@ -5,9 +5,11 @@ require "json"
 require "parsel/marshal"
 require "parsel/json"
 require "parsel/version"
+require 'securerandom'
 
 module Parsel
-  DEFAULT_IV = "f89209ffcdd1a225".freeze
+  DEFAULT_IV = SecureRandom.hex(16).freeze
+  #DEFAULT_IV = "f89209ffcdd1a225".freeze
   CIPHER = "AES-256-CBC".freeze
 
   def self.print_deprecation_message
